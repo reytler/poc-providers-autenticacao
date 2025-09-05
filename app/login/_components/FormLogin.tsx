@@ -28,6 +28,13 @@ export function FormLogin(){
         }
     }
 
+    const handleLoginGitHub = async ()=>{
+        await signIn("github",{
+            redirect: true,
+        })
+        router.push("/")
+    }
+
     return(
         <main>
             <b><h1>Login</h1></b>
@@ -42,6 +49,7 @@ export function FormLogin(){
                 </div>
                 <Button type="submit">{!loading ? "Fazer Login" : "Carregando..."}</Button>
             </form>
+            <Button onClick={()=>handleLoginGitHub()} type="button">Continue com GitHub</Button>
         </main>
     )
 }

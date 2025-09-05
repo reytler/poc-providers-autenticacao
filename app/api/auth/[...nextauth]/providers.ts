@@ -1,5 +1,6 @@
 import { randomUUID } from "crypto";
 import Credentials from "next-auth/providers/credentials";
+import Github from "next-auth/providers/github";
 import { Provider } from "next-auth/providers/index";
 
 export const providers: Provider[] = [
@@ -18,5 +19,9 @@ export const providers: Provider[] = [
 
             return null
         }
-    })
+    }),
+    Github({
+        clientId: process.env.GITHUB_ID!,
+        clientSecret: process.env.GITHUB_SECRET!
+    }),
 ]
